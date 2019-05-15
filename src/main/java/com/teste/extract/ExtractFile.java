@@ -54,12 +54,12 @@ public class ExtractFile {
 		sb.append(entrada.toString().replace(", ", "").replace("-1", "?").substring(1, 10));
 
 		if (entrada.contains(-1)) {
-			return sb.append(" ILL").toString();
+            return sb.append(" ILL").toString();
 		}
 		if (checksum(entrada)) {
-			return sb.append(" ERR").toString();
+			return sb.toString();
 		}
-		return "";
+        return sb.append(" ERR").toString();
 	}
 
 	public static boolean checksum(List<Integer> entrada) {
