@@ -16,6 +16,7 @@ public class ExtractFile {
 	static final HashMap<String, Integer> numerosMap = new HashMap<String, Integer>();
 	static final HashMap<Integer, String> patternMap = new HashMap<Integer, String>();
 
+	
 	public static String obtemFragmentoDigito(String linha, int startIndex) {
 		int offsetIndex = startIndex + 3;
 		int tamanhoLinha = linha.length();
@@ -25,30 +26,8 @@ public class ExtractFile {
 	public static void main(String[] args) throws IOException {
 		String filePath = "src/main/resources/file.txt"; 
 		String outPutFilePath = "src/main/resources/fileOut.txt"; 	
-		
-		numerosMap.put("_ | ||_|", 0);
-		numerosMap.put("|  |", 1);
-		numerosMap.put("_  _||_", 2);
-		numerosMap.put("_  _| _|", 3);
-		numerosMap.put("|_|  |", 4);
-		numerosMap.put("_ |_  _|", 5);
-		numerosMap.put("_ |_ |_|", 6);
-		numerosMap.put("_   |  |", 7);
-		numerosMap.put("_ |_||_|", 8);
-		numerosMap.put("_ |_| _|", 9);
 
-		patternMap.put(0, "_ | ||_|");
-		patternMap.put(1, "|  |");
-		patternMap.put(2, "_  _||_");
-		patternMap.put(3, "_  _| _|");
-		patternMap.put(4, "|_|  |");
-		patternMap.put(5, "_ |_  _|");
-		patternMap.put(6, "_ |_ |_|");
-		patternMap.put(7, "_   |  |");
-		patternMap.put(8, "_ |_||_|");
-		patternMap.put(9, "_ |_| _|");
-
-		ArrayList<Integer> digitos = retornarDigitos(filePath);
+		ArrayList digitos = retornarDigitos(filePath);
 		ArrayList<List<Integer>> digitosSegmentados = segmentarDigitos(digitos);
 		for (List<Integer> entrada : digitosSegmentados) {
 			File file = new File(outPutFilePath);
@@ -90,7 +69,6 @@ public class ExtractFile {
 			resultado += i * multiplicador;
 			multiplicador--;
 		}
-
 		if (resultado % 11 == 0) {
 			return true;
 		}
@@ -98,6 +76,28 @@ public class ExtractFile {
 	}
 
 	public static ArrayList<Integer> retornarDigitos(String filePath) {
+		numerosMap.put("_ | ||_|", 0);
+		numerosMap.put("|  |", 1);
+		numerosMap.put("_  _||_", 2);
+		numerosMap.put("_  _| _|", 3);
+		numerosMap.put("|_|  |", 4);
+		numerosMap.put("_ |_  _|", 5);
+		numerosMap.put("_ |_ |_|", 6);
+		numerosMap.put("_   |  |", 7);
+		numerosMap.put("_ |_||_|", 8);
+		numerosMap.put("_ |_| _|", 9);
+
+		patternMap.put(0, "_ | ||_|");
+		patternMap.put(1, "|  |");
+		patternMap.put(2, "_  _||_");
+		patternMap.put(3, "_  _| _|");
+		patternMap.put(4, "|_|  |");
+		patternMap.put(5, "_ |_  _|");
+		patternMap.put(6, "_ |_ |_|");
+		patternMap.put(7, "_   |  |");
+		patternMap.put(8, "_ |_||_|");
+		patternMap.put(9, "_ |_| _|");
+		
 		List<String> rows;
 		ArrayList<Integer> digitosEmNumeros = new ArrayList<Integer>();
 		try {
