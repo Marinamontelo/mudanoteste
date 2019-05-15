@@ -15,7 +15,7 @@ To run main class:
 # mvn exec:java -Dexec.mainClass="com.teste.extract.ExtractFile" -Dexec.classpathScope=runtime  
 
 
-The file should be in src/main/resources
+The file should be in src/main/resources/file.txt
 
 
 
