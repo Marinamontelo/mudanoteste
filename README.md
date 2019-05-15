@@ -17,5 +17,7 @@ To run main class:
 
 The file should be in src/main/resources/file.txt
 
+the resource output is at src/main/resources/fileOut.txt
+
 
 
